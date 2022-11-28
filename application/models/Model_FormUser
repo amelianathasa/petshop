@@ -1,0 +1,33 @@
+<?php
+
+class Model_FormUser extends CI_Model
+{
+    public function user()
+    {
+        return $this->db->get('user')->result_array();
+    }
+    public function addUser()
+    {
+        $nmfile = "user_" . time();
+        $config['upload_path'] = 'vendor/img/';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['file_name'] = $nmfile;
+        $this->load->library('upload', $config);
+        // upload gambar 1
+        $this->upload->do_upload('gambar');
+        $result1 = $this->upload->data();
+        $result = array('gambar' => $result1);
+        $data1 = array('upload_data' => $this->upload->data());
+        $data = [
+            "nama_user" => $this->input->post('nama', true),
+            "id_user" => $this->input->post('id', true),
+            "jk_user" => $this->input->post('jk', true),
+            "no_telp" => $this->input->post('no', true),
+            "email_user" => $this->input->post('email', true),
+            "role_id" => $this->input->post('role', true),
+            "alamat" => $this->input->post('alamat', true),
+            "foto" => $data1['upload_data']['file_name'],
+        ];
+        $this->db->insert('user', $data);
+    }
+}

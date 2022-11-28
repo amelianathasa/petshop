@@ -75,7 +75,7 @@
                 <ul class="nav">
                     <?php if ($this->session->userdata('role_id') == 'kasir') { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<?= base_url(); ?>dashboard">
                                 <i class="icon-grid menu-icon"></i>
                                 <span class="menu-title">Dashboard</span>
                             </a>
@@ -88,7 +88,7 @@
                             </a>
                             <div class="collapse" id="ui-basic">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets/template'); ?>/pages/ui-features/buttons.html">Add Product</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="<?= base_url(); ?>product">Add Product</a></li>
                                     <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets/template'); ?>/pages/ui-features/dropdowns.html">Stock Product</a></li>
                                 </ul>
                             </div>
@@ -96,12 +96,13 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                                 <i class="icon-columns menu-icon"></i>
-                                <span class="menu-title">Data</span>
+                                <span class="menu-title">Data User</span>
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="form-elements">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('assets/template'); ?>/pages/forms/basic_elements.html">Data Member</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?= base_url(); ?>Form_User">Add User</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?= base_url(); ?>member">Data Member</a></li>
                                     <li class="nav-item"><a class="nav-link" href="<?= base_url('assets/template'); ?>/pages/forms/basic_elements.html">Data Kasir</a></li>
                                 </ul>
                             </div>

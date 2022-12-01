@@ -93,7 +93,7 @@
                             <div class="collapse" id="ui-basic">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" href="<?= base_url(); ?>product">Add Product</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('assets/template'); ?>/pages/ui-features/dropdowns.html">Stock Product</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="<?= base_url(); ?>stock_product"">Stock Product</a></li>
                                 </ul>
                             </div>
                         </li>

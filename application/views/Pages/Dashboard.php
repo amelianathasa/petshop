@@ -1,7 +1,7 @@
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper">
-        <?php if ($this->session->userdata('role_id') == 'kasir') { ?>
+        <?php if ($this->session->userdata('role') == 'kasir') { ?>
             <div class="row">
                 <div class="col-md-12 grid-margin">
                     <div class="row">
@@ -702,7 +702,7 @@
 <?php } ?>
 
 <!-- MEMBER -->
-<?php if ($this->session->userdata('role_id') == 'member') { ?>
+<?php if ($this->session->userdata('role') == 'member') { ?>
     <div class="row">
         <div class="col-md-12 grid-margin">
             <div class="row">

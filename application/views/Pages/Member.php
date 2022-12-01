@@ -2,23 +2,26 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
-            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                <h3 class="font-weight-bold">Data Member</h3>
-                <br>
-                <button name="add_member" class="btn btn-block btn-primary">Add Member</button>
-            </div>
+            <?php if ($this->session->flashdata('flash')) : ?>
+                <div class="alert alert-success" role="alert">
+                    Data User <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close" aria-hidden="true">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php endif ?>
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Hoverable Table</h4>
+                        <h4 class="card-title">Data Member</h4>
                         <p class="card-description">
-                            Add class <code>.table-hover</code>
+                            <!-- Add class <code>.table-hover</code> -->
                         </p>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
+                                        <th>No</th>
                                         <th>Product</th>
                                         <th>Sale</th>
                                         <th>Status</th>

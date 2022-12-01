@@ -11,8 +11,8 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        // check_already_login();
-        $this->form_validation->set_rules('email', 'email', 'trim|required');
+        check_already_login();
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
         if ($this->form_validation->run() == false) {
@@ -36,8 +36,8 @@ class Auth extends CI_Controller
             //user ada
             if ($password == $user['password']) {
                 $data = [
-                    'email' => $user['email'],
-                    'role_id' => $user['role_id']
+                    'id_user' => $user['id_user'],
+                    'role' => $user['role']
                 ];
 
                 $this->session->set_userdata($data);
@@ -47,15 +47,15 @@ class Auth extends CI_Controller
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email Belum Terdaftar!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">ID Anggota Belum Terdaftar!</div>');
             redirect('auth');
         }
     }
 
     public function logout()
     {
-        $this->session->unset_userdata('email');
-        $this->session->unset_userdata('role_id');
+        $this->session->unset_userdata('id_user');
+        $this->session->unset_userdata('role');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Logout Berhasil!</div>');
         redirect('auth');

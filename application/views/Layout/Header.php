@@ -52,7 +52,11 @@
                             <img src="<?= base_url('assets/template'); ?>/images/faces/face28.jpg" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item">
+                            <a class="dropdown-item" href="<?= base_url('profil') ?>">
+                                <i class="ti-user text-primary"></i>
+                                Edit Profile
+                            </a>
+                            <a class="dropdown-item" href="<?= base_url('pengaturan') ?>">
                                 <i class="ti-settings text-primary"></i>
                                 Settings
                             </a>
@@ -73,7 +77,7 @@
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                    <?php if ($this->session->userdata('role_id') == 'kasir') { ?>
+                    <?php if ($this->session->userdata('role') == 'kasir') { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url(); ?>dashboard">
                                 <i class="icon-grid menu-icon"></i>
@@ -123,7 +127,7 @@
                 </ul>
             <?php } ?>
 
-            <?php if ($this->session->userdata('role_id') == 'member') { ?>
+            <?php if ($this->session->userdata('role') == 'member') { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">
                         <i class="icon-grid menu-icon"></i>

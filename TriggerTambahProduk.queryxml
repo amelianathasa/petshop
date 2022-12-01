@@ -1,0 +1,16 @@
+DELIMITER $$
+
+USE `db_library`$$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `triggerPinjamBuku`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `triggerPinjamBuku` AFTER INSERT ON `t_peminjaman` 
+    FOR EACH ROW BEGIN
+	UPDATE db_library.`t_buku` SET stok_buku = stok_buku - new.jmlh_pinjam
+	WHERE id_buku = new.id_buku;
+    END;
+$$
+
+DELIMITER ;
